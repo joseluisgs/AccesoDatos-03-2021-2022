@@ -1,0 +1,42 @@
+# Indicamos la versión
+# Para iniciar docker-compose up -d
+version: '3.7'
+
+# Mis servicios
+# Iniciamos los servicios
+services:
+  # MARIA DB
+  mariadb:
+    build: ./mariadb
+    image: mariadb
+    container_name: mariadb
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    volumes:
+      - mariadb-volume:/var/lib/mysql
+    networks:
+      - mariadb-network
+    # restart: always
+
+  # ADMIN MARIADB
+  adminer:
+    image: adminer
+    container_name: adminer
+    # restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - mariadb-network
+    depends_on:
+      - mariadb
+
+# Mi volumenes de datos compartidos
+volumes:
+  mariadb-volume:
+
+# Si queremos que tengan una red propia a otros contenedores
+networks:
+  mariadb-network:
+    driver: bridge

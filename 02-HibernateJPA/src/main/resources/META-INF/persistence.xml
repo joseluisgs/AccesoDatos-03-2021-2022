@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+
+    <!-- Nombre de la unidad de persistencia -->
+    <persistence-unit name="default">
+        <description> Ejemplo Crud básico Hibernate JPA</description>
+
+        <!-- Indicamos el “provider” que es la implementación de JPA que estamos usando.
+       En nuestro ejemplo hibernate, pero existen otros proveedores como EclipseLink: -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Definiremos las clases que representan “entidades”. Por cada clase
+   debemos utilizar la etiqueta <class> cuyo contenido debe incluir el paquete y el
+   nombre de la clase: -->
+
+        <class>hibernate.Departamento</class>
+        <class>hibernate.Empleado</class>
+        <!-- Nuestras clases de persistencia -->
+
+
+        <!-- Añadimos las propiedades de conexión a la base de datos MySQL -->
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:mariadb://localhost:3306/mydb"/>
+            <property name="hibernate.connection.driver_class" value="org.mariadb.jdbc.Driver"/>
+            <property name="hibernate.connection.user" value="mydb"/>
+            <property name="hibernate.connection.password" value="mydb1234"/>
+            <!-- Para ver las consultas -->
+            <property name="hibernate.show_sql" value="true"/>
+            <!-- Para trabajar con el esquema
+                validate: validate the schema, makes no changes to the database.
+                update: update the schema si detecta cambios.
+                create: creates the schema, destroying previous data.
+                create-drop: drop the schema when the SessionFactory is closed explicitly, typically when the application is stopped.
+                none: does nothing with the schema, makes no changes to the database-->
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+        </properties>
+    </persistence-unit>
+</persistence>

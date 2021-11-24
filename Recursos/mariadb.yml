@@ -1,0 +1,46 @@
+# Indicamos la versión
+# Para iniciar docker-compose -f mariadb.yml up  
+# Para parar docker-compose -f mariadb.yml down
+version: '3.7'
+
+# Mis servicios
+# Iniciamos los servicios
+services:
+  # MARIA DB
+  mariadb:
+    image: mariadb
+    environment:
+      # Puedes cambiar los datos que quieras
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user1234
+      MYSQL_DATABASE: pruebas
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    volumes:
+      - mariadb-volume:/var/lib/mysql
+    networks:
+      - mariadb-network
+    # restart: always
+
+  # ADMIN MARIADB
+  adminer:
+    image: adminer
+    # restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - mariadb-network
+    depends_on:
+      - mariadb
+
+# Mi volumenes de datos compartidos
+volumes:
+  mariadb-volume:
+
+# Si queremos que tengan una red propia a otros contenedores
+networks:
+  mariadb-network:
+    driver: bridge

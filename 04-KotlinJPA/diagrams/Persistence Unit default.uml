@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Persistence</ID>
+  <OriginalElement>JavaeeElement:/ce5339bc/default/HibernateJPA/jpa/JPA/PersistenceModel</OriginalElement>
+  <nodes>
+    <node x="14.5" y="175.0">Departamento#file:///home/link/OneDrive/Docencia/2DAM-AccesoDatos/UD03/02-HibernateJPA/src/main/java/hibernate/Departamento.java</node>
+    <node x="0.0" y="0.0">Empleado#file:///home/link/OneDrive/Docencia/2DAM-AccesoDatos/UD03/02-HibernateJPA/src/main/java/hibernate/Empleado.java</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Empleado#file:///home/link/OneDrive/Docencia/2DAM-AccesoDatos/UD03/02-HibernateJPA/src/main/java/hibernate/Empleado.java" target="Departamento#file:///home/link/OneDrive/Docencia/2DAM-AccesoDatos/UD03/02-HibernateJPA/src/main/java/hibernate/Departamento.java" relationship="RELATION">
+      <point x="0.0" y="-51.0" />
+      <point x="0.0" y="39.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="false" x="87.5" y="127.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Embeddables</Category>
+    <Category>Properties</Category>
+    <Category>Superclasses</Category>
+  </Categories>
+</Diagram>
+

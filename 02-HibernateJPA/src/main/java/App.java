@@ -87,12 +87,11 @@ public class App {
             entityManager.remove(insert);
             transaction.commit();
             System.out.println(insert);
-
-
-        } finally {
+        } catch (Exception e){
             if (transaction.isActive()) {
                 transaction.rollback();
             }
+        } finally {
             entityManager.close();
             entityManagerFactory.close();
         }
